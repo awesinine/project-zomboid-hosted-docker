@@ -23,7 +23,3 @@ services:
       STEAMPORT2: 8767
       GAMEPORT: 16261
     restart: unless-stopped
-
-volumes:
-  server-files:
-  server-data:
