@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  project-zomboid:
+    build:
+      context: .
+    ports:
+      - 16261:16261/udp
+      - 8766:8766/udp
+      - 8767:8767/udp
+      - 16262-16272:16262-16272
+      - 27015:27015
+    volumes:
+      - ./server-files:/server-files
+      - ./server-data:/server-data
+    environment:
+      adminpassword: adminpassword
+      SERVERNAME: servername
+      SERVER_PASSWORD: serverpassword
+      ADMINPASSWORD: adminpassword
+      RCON_PASSWORD: rconpassword
+      STEAMPORT1: 8766
+      STEAMPORT2: 8767
+      GAMEPORT: 16261
+    restart: unless-stopped
+
+volumes:
+  server-files:
+  server-data:
